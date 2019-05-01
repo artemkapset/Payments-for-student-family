@@ -1,6 +1,6 @@
 package edu.kapset.studentorder.validators;
 
-import edu.kapset.studentorder.domain.AnswerWedding;
+import edu.kapset.studentorder.domain.wedding.AnswerWedding;
 import edu.kapset.studentorder.domain.StudentOrder;
 
 // класс, содержащий в себе логику проверки регистрации брака

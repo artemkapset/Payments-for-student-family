@@ -1,10 +1,17 @@
 package edu.kapset.studentorder.domain;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentOrder {
     private long studentOrderId;    // идентификатор студенческой заявки
     private Adult husband;          // муж
     private Adult wife;             // жена
-    private Child child;            // ребёнок
+    private List<Child> children;   // дети
+    private String marriageCertificateId; // свидетельство о браке
+    private String marriageOffice;  // ЗАГС
+    private LocalDate marriageDate; // дата заключения брака
 
     public long getStudentOrderId() {
         return studentOrderId;
@@ -30,11 +37,38 @@ public class StudentOrder {
         this.wife = wife;
     }
 
-    public Child getChild() {
-        return child;
+    public List<Child> getChildren() {
+        return children;
     }
 
-    public void setChild(Child child) {
-        this.child = child;
+    public void addChild (Child child) {    // метод addChild вместо setChild
+        if (children == null) {
+            children = new ArrayList<>();
+        }
+        children.add(child);
+    }
+
+    public String getMarriageCertificateId() {
+        return marriageCertificateId;
+    }
+
+    public void setMarriageCertificateId(String marriageCertificateId) {
+        this.marriageCertificateId = marriageCertificateId;
+    }
+
+    public String getMarriageOffice() {
+        return marriageOffice;
+    }
+
+    public void setMarriageOffice(String marriageOffice) {
+        this.marriageOffice = marriageOffice;
+    }
+
+    public LocalDate getMarriageDate() {
+        return marriageDate;
+    }
+
+    public void setMarriageDate(LocalDate marriageDate) {
+        this.marriageDate = marriageDate;
     }
 }

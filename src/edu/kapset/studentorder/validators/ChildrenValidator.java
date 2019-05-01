@@ -1,6 +1,6 @@
 package edu.kapset.studentorder.validators;
 
-import edu.kapset.studentorder.domain.AnswerChildren;
+import edu.kapset.studentorder.domain.children.AnswerChildren;
 import edu.kapset.studentorder.domain.StudentOrder;
 
 // класс, содержащий в себе логику проверки наличия детей

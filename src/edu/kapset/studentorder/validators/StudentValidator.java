@@ -1,6 +1,6 @@
 package edu.kapset.studentorder.validators;
 
-import edu.kapset.studentorder.domain.AnswerStudent;
+import edu.kapset.studentorder.domain.student.AnswerStudent;
 import edu.kapset.studentorder.domain.StudentOrder;
 
 // класс, содержащий в себе логику проверки, что гражданин является студентом

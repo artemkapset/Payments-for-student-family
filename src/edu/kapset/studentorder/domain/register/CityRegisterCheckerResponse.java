@@ -1,4 +1,4 @@
-package edu.kapset.studentorder.domain;
+package edu.kapset.studentorder.domain.register;
 
 /*
 класс для хранения ответа из ГРН о регистрации гражданина
@@ -25,5 +25,13 @@ public class CityRegisterCheckerResponse {
 
     public void setTemporal(Boolean temporal) {
         this.temporal = temporal;
+    }
+
+    @Override
+    public String toString() {
+        return "CityRegisterCheckerResponse{" +
+                "existing=" + existing +
+                ", temporal=" + temporal +
+                '}';
     }
 }

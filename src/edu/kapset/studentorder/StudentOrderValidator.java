@@ -1,6 +1,10 @@
 package edu.kapset.studentorder;
 
 import edu.kapset.studentorder.domain.*;
+import edu.kapset.studentorder.domain.children.AnswerChildren;
+import edu.kapset.studentorder.domain.register.AnswerCityRegister;
+import edu.kapset.studentorder.domain.student.AnswerStudent;
+import edu.kapset.studentorder.domain.wedding.AnswerWedding;
 import edu.kapset.studentorder.mail.MailSender;
 import edu.kapset.studentorder.validators.ChildrenValidator;
 import edu.kapset.studentorder.validators.CityRegisterValidator;
@@ -52,7 +56,7 @@ public class StudentOrderValidator {
     }
 
     public StudentOrder[] readStudentOrders() {
-        StudentOrder[] soArray = new StudentOrder[3];
+        StudentOrder[] soArray = new StudentOrder[5];
         for (int c = 0; c < soArray.length; c++) {
             soArray[c] = SaveStudentOrder.buildStudentOrder(c);
         }

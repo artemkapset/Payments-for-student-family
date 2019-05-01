@@ -1,6 +1,6 @@
-package edu.kapset.studentorder.domain;
+package edu.kapset.studentorder.domain.student;
 
 // класс для создания объекта, который содержит в себе результат проверки
-public class AnswerWedding {
+public class AnswerStudent {
     public boolean success;
 }

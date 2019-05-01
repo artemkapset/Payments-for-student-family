@@ -1,9 +1,14 @@
 package edu.kapset.studentorder.validators;
 
-import edu.kapset.studentorder.domain.AnswerCityRegister;
-import edu.kapset.studentorder.domain.CityRegisterCheckerResponse;
+import edu.kapset.studentorder.domain.register.AnswerCityRegister;
+import edu.kapset.studentorder.domain.Child;
+import edu.kapset.studentorder.domain.register.CityRegisterCheckerResponse;
 import edu.kapset.studentorder.domain.StudentOrder;
 import edu.kapset.studentorder.exception.CityRegisterException;
+import edu.kapset.studentorder.validators.register.CityRegisterChecker;
+import edu.kapset.studentorder.validators.register.FakeCityRegisterChecker;
+
+import java.util.List;
 
 // класс, содержащий в себе логику проверки регистрации гражданина в ГРН
 public class CityRegisterValidator {
@@ -21,9 +26,14 @@ public class CityRegisterValidator {
         try {
             CityRegisterCheckerResponse hans = personChecker.checkPerson(so.getHusband());
             CityRegisterCheckerResponse wans = personChecker.checkPerson(so.getWife());
-            CityRegisterCheckerResponse cans = personChecker.checkPerson(so.getChild());
+
+            List<Child> children = so.getChildren();
+
+            for (Child child : children) {
+                CityRegisterCheckerResponse cans = personChecker.checkPerson(child);
+            }
         } catch (CityRegisterException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
 
 
