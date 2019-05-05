@@ -11,6 +11,9 @@ import edu.kapset.studentorder.validators.CityRegisterValidator;
 import edu.kapset.studentorder.validators.StudentValidator;
 import edu.kapset.studentorder.validators.WeddingValidator;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class StudentOrderValidator {
 
     private CityRegisterValidator cityRegisterVal;
@@ -32,35 +35,39 @@ public class StudentOrderValidator {
     }
 
     public void checkAll() {
-        StudentOrder[] soArray = readStudentOrders(); // "считывание" массива заявок
-        for (int c = 0; c < soArray.length; c++) {
-            checkOneOrder(soArray[c]);
+        List<StudentOrder> soList = readStudentOrders(); // "считывание" массива заявок
+        for (StudentOrder so : soList) {
+            checkOneOrder(so);
         }
     }
 
+    public List<StudentOrder> readStudentOrders() {
+        List<StudentOrder> soList = new LinkedList<>();
+        for (int c = 0; c < 5; c++) {
+            StudentOrder so = SaveStudentOrder.buildStudentOrder(c);
+            soList.add(so);
+        }
+        return soList;
+    }
+
     public void checkOneOrder(StudentOrder so) {
-        /*
-        Результаты проверки регистрации в данном городе, регисттрации брака,
-        наличия детей и являются ли заявители студентами будут храниться
-        в объектах, для которых созданы соответствующие классы.
-        Эти объекты создаются вызовом соотв. методов, параметром для которых
-        является заявка edu.kapset.studentorder.domain.StudentOrder
-         */
+
+//        Результаты проверки регистрации в данном городе, регисттрации брака,
+//        наличия детей и являются ли заявители студентами будут храниться
+//        в объектах, для которых созданы соответствующие классы.
+//        Эти объекты создаются вызовом соотв. методов, параметром для которых
+//        является заявка edu.kapset.studentorder.domain.StudentOrder
+
         AnswerCityRegister cityRegister = checkCityRegister(so);
+
+        /*
         AnswerWedding wedAnswer = checkWedding(so);
         AnswerChildren childAnswer = checkChildren(so);
         AnswerStudent studentAnswer = checkStudent(so);
 
         // отправка e-mail с результатами проверки и др. информацией
         sendMail(so);
-    }
-
-    public StudentOrder[] readStudentOrders() {
-        StudentOrder[] soArray = new StudentOrder[5];
-        for (int c = 0; c < soArray.length; c++) {
-            soArray[c] = SaveStudentOrder.buildStudentOrder(c);
-        }
-        return soArray;
+        */
     }
 
     // проверка в ГРН

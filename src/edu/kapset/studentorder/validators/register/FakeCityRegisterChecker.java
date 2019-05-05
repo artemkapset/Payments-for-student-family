@@ -2,9 +2,10 @@ package edu.kapset.studentorder.validators.register;
 
 import edu.kapset.studentorder.domain.Adult;
 import edu.kapset.studentorder.domain.Child;
-import edu.kapset.studentorder.domain.register.CityRegisterCheckerResponse;
+import edu.kapset.studentorder.domain.register.CityRegisterResponse;
 import edu.kapset.studentorder.domain.Person;
 import edu.kapset.studentorder.exception.CityRegisterException;
+import edu.kapset.studentorder.exception.TransportException;
 
 /*
 класс-заглушка для RealCityRegisterChecker (на случай, если, например, сервис ГРН еще в разработке
@@ -18,11 +19,14 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
     public static final String BAD_2 = "2001";
     public static final String ERROR_1 = "1002";
     public static final String ERROR_2 = "2002";
+    public static final String ERROR_T_1 = "1003";
+    public static final String ERROR_T_2 = "2003";
 
     @Override
-    public CityRegisterCheckerResponse checkPerson(Person person) throws CityRegisterException {
+    public CityRegisterResponse checkPerson(Person person)
+            throws CityRegisterException, TransportException {
 
-        CityRegisterCheckerResponse res = new CityRegisterCheckerResponse();
+        CityRegisterResponse res = new CityRegisterResponse();
 
         if (person instanceof Adult) {
             Adult t = (Adult) person; // выполнятеся приведение типов для доступа к методам класса Adult
@@ -35,7 +39,11 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
                 res.setExisting(false);
             }
             if (ps.equals(ERROR_1) || ps.equals(ERROR_2)) {
-                CityRegisterException ex = new CityRegisterException("Fake Error");
+                CityRegisterException ex = new CityRegisterException("1", "GRN Error " + ps);
+                throw ex;
+            }
+            if (ps.equals(ERROR_T_1) || ps.equals(ERROR_T_2)) {
+                TransportException ex = new TransportException("Transpot Error " + ps);
                 throw ex;
             }
         }

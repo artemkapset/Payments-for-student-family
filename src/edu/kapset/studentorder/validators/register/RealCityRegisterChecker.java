@@ -1,8 +1,9 @@
 package edu.kapset.studentorder.validators.register;
 
-import edu.kapset.studentorder.domain.register.CityRegisterCheckerResponse;
+import edu.kapset.studentorder.domain.register.CityRegisterResponse;
 import edu.kapset.studentorder.domain.Person;
 import edu.kapset.studentorder.exception.CityRegisterException;
+import edu.kapset.studentorder.exception.TransportException;
 
 
 // класс RealCityRegisterChecker используется для обращения к сервису ГРН
@@ -10,7 +11,8 @@ import edu.kapset.studentorder.exception.CityRegisterException;
 public class RealCityRegisterChecker implements CityRegisterChecker {
 
     @Override
-    public CityRegisterCheckerResponse checkPerson(Person person) throws CityRegisterException {
+    public CityRegisterResponse checkPerson(Person person)
+            throws CityRegisterException, TransportException {
         return null;
     }
 }
