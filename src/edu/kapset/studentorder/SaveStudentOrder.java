@@ -5,13 +5,40 @@ import edu.kapset.studentorder.domain.Adult;
 import edu.kapset.studentorder.domain.Child;
 import edu.kapset.studentorder.domain.StudentOrder;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDate;
 
 public class SaveStudentOrder {
 
+    public static void main(String[] args) throws Exception {
+        // загрузка драйвера
+        // "заставляем" драйвер postgres зарегистрироваться в подсистеме JDBC
+        Class.forName("org.postgresql.Driver"); // загрузка класса по имени (...рефлексия)
+
+        // получение соединения с базой данных
+        Connection con = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/jc_student",
+                "postgres",
+                "9na7RAVNO63");
+
+        // создание запроса
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM jc_street");
+
+        while (rs.next()) {
+            System.out.println(rs.getLong(1) + " : " + rs.getString(2));
+        }
+
+//        StudentOrder s = buildStudentOrder(10);
+    }
+
     // сохранение заявки студента
     static long saveStudentOrder(StudentOrder studentOrder) {
-        long answer = 1000; //  answer должен хранить что-то типа "id"?
+        long answer = 199; //  answer должен хранить что-то типа "id"?
+        System.out.println("saveStudentOrder");
         // ...
         return answer;
     }
