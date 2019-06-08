@@ -1,5 +1,6 @@
 package edu.kapset.studentorder.dao;
 
+import edu.kapset.studentorder.config.Config;
 import edu.kapset.studentorder.domain.Street;
 import edu.kapset.studentorder.exception.DaoException;
 
@@ -22,9 +23,10 @@ public class DictionaryDaoImpl implements DictionaryDao {
 
         // получение соединения с базой данных
         Connection con = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/jc_student",
-                "postgres",
-                "9na7RAVNO63");
+                Config.getProperty(Config.DB_URL),
+                Config.getProperty(Config.DB_LOGIN),
+                Config.getProperty(Config.DB_PASSWORD));
+
         return con;
     }
 
