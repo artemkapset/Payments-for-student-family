@@ -10,7 +10,7 @@ public class StudentOrder {
     private Adult wife;             // жена
     private List<Child> children;   // дети
     private String marriageCertificateId; // свидетельство о браке
-    private String marriageOffice;  // ЗАГС
+    private RegisterOffice marriageOffice;  // ЗАГС
     private LocalDate marriageDate; // дата заключения брака
 
     public long getStudentOrderId() {
@@ -56,11 +56,11 @@ public class StudentOrder {
         this.marriageCertificateId = marriageCertificateId;
     }
 
-    public String getMarriageOffice() {
+    public RegisterOffice getMarriageOffice() {
         return marriageOffice;
     }
 
-    public void setMarriageOffice(String marriageOffice) {
+    public void setMarriageOffice(RegisterOffice marriageOffice) {
         this.marriageOffice = marriageOffice;
     }
 

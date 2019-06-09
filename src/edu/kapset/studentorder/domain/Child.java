@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Child extends Person {
     private String certificateNumber;   // номер свидетельства о рождении
     private LocalDate issueDate;        // дата выдачи свидетельства о рождении
-    private String issueDepartment;     // кем выдано свидетельство о рождении
+    private RegisterOffice issueDepartment;     // кем выдано свидетельство о рождении
 
     public Child() {
     }
@@ -30,11 +30,11 @@ public class Child extends Person {
         this.issueDate = issueDate;
     }
 
-    public String getIssueDepartment() {
+    public RegisterOffice getIssueDepartment() {
         return issueDepartment;
     }
 
-    public void setIssueDepartment(String issueDepartment) {
+    public void setIssueDepartment(RegisterOffice issueDepartment) {
         this.issueDepartment = issueDepartment;
     }
 }
