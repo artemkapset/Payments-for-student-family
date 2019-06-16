@@ -23,7 +23,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
 
     private static final String GET_AREA = "SELECT * FROM jc_country_struct WHERE area_id LIKE ? AND area_id <> ?";
 
-
+    // TODO refactoring - make one method
     private Connection getConnection() throws SQLException {
         /*
         загрузка драйвера - "заставляем" драйвер postgres зарегистрироваться в подсистеме JDBC
@@ -129,7 +129,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
              PreparedStatement stmt = con.prepareStatement(GET_AREA))
         {
             String param1 = buildParam(areaId);
-            String param2 = areaId;
+            //String param2 = areaId;
 
             stmt.setString(1, param1);
             stmt.setString(2, areaId);
