@@ -7,6 +7,9 @@ public class Address {
     private String extension;       // корпус
     private String apartment;       // квартира
 
+    public Address() {
+    }
+
     public Address(String postCode, Street street, String building, String extension, String apartment) {
         this.postCode = postCode;
         this.street = street;

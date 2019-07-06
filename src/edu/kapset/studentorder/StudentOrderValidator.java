@@ -30,10 +30,6 @@ public class StudentOrderValidator {
         mailSender = new MailSender();
     }
 
-    public static void main(String[] args) {
-
-    }
-
     public void checkAll() {
         List<StudentOrder> soList = readStudentOrders(); // "считывание" массива заявок
         for (StudentOrder so : soList) {
